@@ -1,0 +1,94 @@
+﻿
+
+
+
+
+
+
+@foreach (var News in News)
+    {
+
+<div class="news_parametrs">
+    <img class="news_img" src="@News.ImageNewsUrl">
+    <div class="news_content"><p id="@News.id" class="title_news">@News.TitleNews</p><p class="text_news"><span>@News.TextNews1</span> @News.TextNews2</p><p class="date">@News.DataNews</p></div>
+</div>
+
+
+    }
+@code {
+    private static List<News> News = new List<News>
+    {
+       new News
+       {
+           id = 1,
+           ImageNewsUrl = "/image/News/1.jpg",
+           TitleNews = "‘Oh, goodness!’ How's this for an encore?",
+           TextNews1 = "In his 2nd MLB game",
+           TextNews2 = ", Elly De La Cruz obliterated a 458-foot blast for his 1st career homer and flashed his speed on a triple, before the Reds walked off the Dodgers for a 2nd straight night.",
+           DataNews = "08.06.2023"
+       },
+           new News
+       {
+           id = 2,
+           ImageNewsUrl = "/image/News/2.jpg",
+           TitleNews = "He's won a batting title. Can he hit .400?",
+           TextNews1 = "Marlins second baseman Luis Arraez",
+           TextNews2 = "is trying to become the first player since Ted Williams to hit .400. It's June. He's got a shot.",
+           DataNews = "07.06.2023"
+       },
+           new News
+       {
+           id = 3,
+           ImageNewsUrl = "/image/News/3.jpg",
+           TitleNews = "This SB champ is looking right at home on the diamond",
+           TextNews1 = "Patrick Mahomes",
+           TextNews2 = "No surprise, Patrick Mahomes looks like he could've been a big leaguer. The K.C. quarterback had himself a day -- including a HR -- in the Royals’ annual Big Slick celebrity softball game.",
+           DataNews = "07.06.2023"
+       },
+           new News
+       {
+           id = 4,
+           ImageNewsUrl = "/image/News/4.jpg",
+           TitleNews = "Rookie races, Dodgers' drought and more ballot storylines",
+           TextNews1 = "Mike Trout's",
+           TextNews2 = "Will Mike Trout's streak survive? Will either Wander Franco or Bo Bichette become his franchise’s first All-Star starter at shortstop?",
+           DataNews = "05.06.2023"
+       },
+           new News
+       {
+           id = 5,
+           ImageNewsUrl = "/image/News/5.jpg",
+           TitleNews = "Baseball's best players in the month of May",
+           TextNews1 = "Can you believe",
+           TextNews2 = " the season is two months old already? Here’s an All-Star pick from each league, at each position, for May.",
+           DataNews = "03.05.2023"
+       },
+           new News
+       {
+           id = 6,
+           ImageNewsUrl = "/image/News/6.jpg",
+           TitleNews = "Emerging rookies making league take notice",
+           TextNews1 = "No. 1 is an easy choice.",
+           TextNews2 = " But there's been substantial movement beyond the top spot in the third edition of MLB Pipeline’s 2023 Rookie Power Rankings.",
+           DataNews = "02.05.2023"
+       },
+           new News
+       {
+           id = 7,
+           ImageNewsUrl = "/image/News/7.jpg",
+           TitleNews = "The pitcher who could shake up the Deadline",
+           TextNews1 = "There is no",
+           TextNews2 = " hotter commodity during trade season than a top-notch starting pitcher.",
+           DataNews = "01.05.2023"
+       },
+           new News
+       {
+           id = 8,
+           ImageNewsUrl = "/image/News/8.jpg",
+           TitleNews = "It's far from a ruff life for Judge and his adorable pup",
+           TextNews1 = "Aaron Judge",
+           TextNews2 = "and his Dachshund, Gus, got in some quality playtime on the Yankee Stadium outfield grass.",
+           DataNews = "01.05.2023"
+       }
+    };
+      }

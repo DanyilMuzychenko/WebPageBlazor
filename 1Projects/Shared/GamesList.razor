@@ -1,0 +1,71 @@
+﻿@foreach (var games in Games)
+    {
+<div class="teams_1">
+    <div class="TeamSetting">
+        <img class="TeamSettingImage" src="@games.FirstImageUrl">
+        <p>@games.FirstNameTeam</p>
+        <p>@games.FirstStatusofteam</p>
+
+    </div>
+    <div class="points">
+        <p>@games.FirstFinalscore</p>
+    </div>
+    <div class="final">final/ot</div>
+    <div class="points">
+        <p>@games.SecondFinalscore</p>
+    </div>
+    <div class="TeamSetting">
+        <img class="TeamSettingImage" src="@games.SecondImageUrl" alt="">
+        <p>@games.SecondNameTeam</p>
+        <p>@games.SecondStatusofteam</p>
+    </div>
+    
+
+</div>
+    }
+
+@code {
+    private static List<Games> Games = new List<Games>
+    {
+        new Games
+        {
+            id = 1,
+            FirstNameTeam = "SanDig",
+            FirstImageUrl = "/image/teams/SanDiego.png",
+            FirstStatusofteam = "3-5",
+            FirstFinalscore = "8",
+
+            SecondNameTeam = "Washt",
+            SecondImageUrl = "/image/teams/Washington.png",
+            SecondStatusofteam = "6-5",
+            SecondFinalscore = "6"
+        },
+          new Games
+        {
+            id = 2,
+            FirstNameTeam = "Giants",
+            FirstImageUrl = "/image/teams/Giants.png",
+            FirstStatusofteam = "4-6",
+            FirstFinalscore = "4",
+
+            SecondNameTeam = "Twins",
+            SecondImageUrl = "/image/teams/Twins.png",
+            SecondStatusofteam = "3-7",
+            SecondFinalscore = "2"
+        },
+         new Games
+         {
+            id = 3,
+            FirstNameTeam = "RedSox",
+            FirstImageUrl = "/image/teams/RedSox.png",
+            FirstStatusofteam = "4-7",
+            FirstFinalscore = "3",
+
+            SecondNameTeam = "Angels",
+            SecondImageUrl = "/image/teams/Angels.png",
+            SecondStatusofteam = "8-4",
+            SecondFinalscore = "7"
+        }
+        
+    };
+}

@@ -1,0 +1,73 @@
+﻿@page "/Signin"
+@inject ProfilesDataService profiledataservice
+<head>
+
+     <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+   
+    <header class="header">
+        <div id="menu" class="nav">
+            <a href="#intro" class="logo"><img class="baseballlogo" src="/image/logo.jpg" /> </a>
+
+                <a href="/" class="header_nav">Games</a>
+                <a href="/Teams" class="header_nav">Teams</a>
+                <a href="/News" class="header_nav">News</a>
+           
+           
+        </div>
+
+        <div class="login">
+            <a href="/LogIn" class="login_button">login</a>
+            <a href="/SignIn" class="signin_button">Sign in</a>
+        </div>
+    </header>
+    <main >
+       
+			<div class="container">
+                <div class = "login_box">Login</div>
+            <input @bind="@profiles.Login"  name="login" type="text" id="login" class="TextBox">
+                <div class = "login_box">Password</div>
+            <input @bind="@profiles.Password" name="passw" type="password" id="password" class="TextBox_Password">
+                <button  id = "open_password" class = "open_password">Toggle Security</button>
+                <div class = "signin_box">E-Mail</div>
+            <input @bind="@profiles.Email" name="email" type="text" id="email" class="TextBox_mail">
+                 <div class = "signin_box">Number of phone</div>
+            <input @bind="@profiles.NumberOfPhone"  name="phone" type="text" id="phone" class="TextBox_phone">
+                <div class = "signin_box">Country</div>
+            <br><select @bind="@profiles.Country"  id="country" name="Country" class="Countrychoose">
+                    <option value = "-1" selected>[choose yours]</option>
+                    <option value = "1">Poland</option>
+                    <option value = "2">USA</option>
+                    <option value = "3">Ukraine</option>
+                 </select>
+            <br><button @onclick="CreateUserProfile" id="check" class="login_but" type="submit">Sign In</button>
+			</div>
+			
+	
+    </main>
+    <footer>
+        <div class="container">
+            <div class="my_info">
+                <p>Telephone: +480506426433</p>
+                <a class="inst" href="https://www.instagram.com/_zlidik_/">
+                    <p>My instagram</p>
+                </a>
+                <p>Design by Danyil Muzychenko with love;)</p>
+            </div>
+        </div>
+    </footer>
+</body>
+@code {
+    ProfileData profiles = new ProfileData();
+
+    private async void CreateUserProfile()
+    {
+        await profiledataservice.AddNewAccount(profiles);
+    }
+}

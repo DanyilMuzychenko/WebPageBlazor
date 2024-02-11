@@ -1,0 +1,88 @@
+﻿@page "/LogIn"
+@inject ProfilesDataService profiledataservice
+@inject NavigationManager NavigationManager
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+   
+    <header class="header">
+        <div id="menu" class="nav">
+            <a href="#intro" class="logo"><img class="baseballlogo" src="/image/logo.jpg" /> </a>
+
+                <a href="/" class="header_nav">Games</a>
+                <a href="/Teams" class="header_nav">Teams</a>
+                <a href="/News" class="header_nav">News</a>
+        
+           
+        </div>
+
+        <div class="login">
+            <a href="/LogIn" class="login_button">login</a>
+            <a href="/SignIn" class="signin_button">Sign in</a>
+        </div>
+    </header>
+    <main>
+        
+        <div class="container">
+            
+               
+                <div class = "login_box">Login</div>
+            <input @bind="@client.email" name="login" type="text" id="login" class="TextBox">
+                <div class = "login_box">Password</div>
+            <input @bind="@client.password" name="passw" type="password" id="password" class="TextBox_Password">
+                <button   id = "open_password" class = "open_password">Toggle Security</button>
+            <p>@Message</p>
+            <br><button @onclick="Login" id="check" class="login_but">Login</button>
+            
+              
+           
+         
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="my_info">
+                <p>Telephone: +480506426433</p>
+                <a class="inst" href="https://www.instagram.com/_zlidik_/">
+                    <p>My instagram</p>
+                </a>
+                <p>Design by Danyil Muzychenko with love;)</p>
+            </div>
+        </div>
+    </footer>
+    <!-- <script src = "js/logins.js"></script> -->
+    <!-- <script src = "try1.js" ></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+</body>
+@code {
+    ProfileData profiles = new ProfileData();
+    string Message = "Hello";
+    Client client = new Client();
+
+    private class Client
+    {
+        public string? email { get; set; }
+
+        public string? password { get; set; }
+    }
+
+    private void Login()
+    {
+        profiles = profiledataservice.GetUserByEmail(client.email);
+        if (profiles != null && profiledataservice.PasswordValidation(profiles, client.password))
+        {
+            Message = "Udało się";
+        }
+        else
+        {
+            Message = "error";
+        }
+    }
+}

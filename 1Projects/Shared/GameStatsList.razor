@@ -1,0 +1,92 @@
+﻿
+
+
+@foreach (var GameStats in GameStats)
+    { 
+        <div class="game_leads_button">
+        <div class="game_leads">
+        <div class="game_leaders_text"><p>Game Leaders</p><div class = "leader_point"><p>Pos</p><p>KO</p><p>Era</p></div></div>
+        <div class="game_leaders_1">
+   
+    
+        <img class="leaders_img" src="@GameStats.ImageUrl">
+        <div class="name">@GameStats.name </div>
+        <div class="stats_leader"><p>@GameStats.Position</p><p>@GameStats.KO</p><p>@GameStats.Era</p></div>
+         </div>
+
+
+       
+        <div class="game_leaders_1">
+        <img class="leaders_img" src="@GameStats.SecondImageUrl">
+        <div class="name">@GameStats.secondname </div>
+        <div class="stats_leader"><p>@GameStats.SecondPosition</p><p>@GameStats.SecondKO</p><p>@GameStats.SecondEra</p></div>
+        </div>
+        </div>
+        </div>
+      
+    }
+
+
+@code {
+
+
+    private static List<GameStats> GameStats = new List<GameStats>
+    {
+        new GameStats
+        {
+            id = 1,
+            ImageUrl = "/image/Players/1.png",
+            name = "Ben Lively",
+            Position = "lbs",
+            KO = "60",
+            Era = "3.03",
+
+           
+            SecondImageUrl = "/image/Players/2.png",
+            secondname = "Jordan Mont",
+            SecondPosition = "rbs",
+            SecondKO = "29",
+            SecondEra = "2.03"
+        },
+     
+          new GameStats
+        {
+            id = 3,
+            ImageUrl = "/image/Players/3.png",
+            name = "Shohei Ohtani",
+            Position = "PT",
+            KO = "60",
+            Era = "3.30",
+        
+
+
+            SecondImageUrl = "/image/Players/4.png",
+            secondname = "Luis Castillo",
+            SecondPosition = "PCG",
+            SecondKO = "83",
+            SecondEra = "2.55"
+        },
+
+            new GameStats
+        {
+            id = 3,
+            ImageUrl = "/image/Players/5.png",
+            name = "Garrett Whitlock",
+            Position = "PT",
+            KO = "20",
+            Era = "5.61",
+
+
+
+            SecondImageUrl = "/image/Players/6.png",
+            secondname = "Gerrit Cole",
+            SecondPosition = "PCG",
+            SecondKO = "84",
+            SecondEra = "2.82"
+        }
+
+
+
+    };
+
+    }
